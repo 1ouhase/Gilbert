@@ -2,9 +2,10 @@ package net.iouhase.gilbert.usecase;
 
 import net.iouhase.gilbert.application.UserRepository;
 import net.iouhase.gilbert.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class UserService {
     private final UserRepository userRepository;
 

@@ -3,9 +3,10 @@ package net.iouhase.gilbert.usecase;
 import jdk.jfr.Category;
 import net.iouhase.gilbert.application.ProductRepository;
 import net.iouhase.gilbert.model.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ProductService {
     private final ProductRepository productRepository;
 
