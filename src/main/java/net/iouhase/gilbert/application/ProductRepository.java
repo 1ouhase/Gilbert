@@ -18,7 +18,7 @@ public class ProductRepository {
         jdbcTemplate.update(sql, product.getCategory(), product.getName(), product.getItemNumber());
     }
 
-    public Product findById(Product product) {
+    public Product findByItemNumber(Product product) {
         String sql = "SELECT * FROM product WHERE itemNumber = ?";
         return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Product.class), product);
     }
