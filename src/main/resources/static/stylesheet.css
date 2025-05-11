@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #e2e2e2;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main";
+    grid-template-columns: auto;
+    grid-template-rows: auto auto 1fr;
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
+    color: #f8f0e5;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+.header h1 {
+    background-color: #004224;
+    font-size: 48px;
+    padding: 10px;
+}
+
+.header button {
+    background-color: #f8f0e5;
+    color: #004224;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #e2e2e2;
+    border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    grid-area: main;
+    background-color: #e2e2e2;
+}
+
+.main iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.nav-image {
+    display: none;
+}
+
+.nav-text {
+    width: 4%;
+    margin: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.contents{
+    width: 60%;
+}
+
+
+@media (max-width: 1200px) {
+    .container {
+        grid-template-areas: 
+            "header"
+            "main"
+            "nav"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto auto auto;
+    }
+
+    .nav {
+        border: 0;
+        position: sticky;
+        bottom: 0;
+        padding: 0;
+        justify-content: space-evenly;
+    }
+
+    .header {
+        position: static;
+    }
+
+    .nav-image {
+        display: initial;
+        object-fit: contain;
+        background-color: #e2e2e2;
+        max-height: 125px;
+        max-width: 100%;
+    }
+
+    .nav-text {
+        display: none;
+    }
+
+
+    .contents{
+        width: 100%;
+    }
+}
