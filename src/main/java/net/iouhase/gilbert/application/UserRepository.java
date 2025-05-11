@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public class UserRepository {
     private final JdbcTemplate jdbcTemplate;
@@ -22,9 +24,10 @@ public class UserRepository {
         String sql = "select * from user where email = ?";
         return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), user.getEmail());
     }
-    public User findByUsername(User user) {
+    public Optional<User> findByUsername(User user) {
         String sql = "select * from user where username = ?";
-        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), user.getUsername());
+        System.out.println("pleaseasd");
+        return Optional.ofNullable(jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), user.getUsername()));
     }
     public List<User> findAll() {
         String sql = "select * from user";

@@ -42,7 +42,7 @@ public class UserController {
     public String updateUser(@PathVariable String email, Model model) {
         User user = new User();
         user.setEmail(email);
-        model.addAttribute("user", userService.findByEmail(user));
+        //model.addAttribute("user", userService.findByEmail(user));
         return "updateUser";
     }
 
@@ -51,7 +51,7 @@ public class UserController {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        userService.update(user);
+        //userService.update(user);
         return "redirect:/profile";
     }
 
@@ -61,7 +61,7 @@ public class UserController {
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email);
-        userService.save(user);
+        //userService.save(user);
         return "redirect:/login";
     }
 
@@ -69,7 +69,7 @@ public class UserController {
     public String deleteUser(@PathVariable String email) {
         User user = new User();
         user.setEmail(email);
-        userService.delete(user);
+        //userService.delete(user);
         return "redirect:/";
     }
 }

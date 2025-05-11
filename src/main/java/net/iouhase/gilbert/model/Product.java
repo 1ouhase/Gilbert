@@ -5,16 +5,6 @@ public class Product {
     String name;
     String category;
 
-    public Product(int itemNumber, String name, String category) {
-        this.itemNumber = itemNumber;
-        this.name = name;
-        this.category = category;
-    }
-
-    public Product() {
-
-    }
-
     public int getItemNumber() {
         return itemNumber;
     }
