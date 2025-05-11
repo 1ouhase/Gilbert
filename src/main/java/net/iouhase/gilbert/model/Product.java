@@ -11,6 +11,10 @@ public class Product {
         this.category = category;
     }
 
+    public Product() {
+
+    }
+
     public int getItemNumber() {
         return itemNumber;
     }
