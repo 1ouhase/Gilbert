@@ -26,7 +26,6 @@ public class UserRepository {
     }
     public Optional<User> findByUsername(User user) {
         String sql = "select * from user where username = ?";
-        System.out.println("pleaseasd");
         return Optional.ofNullable(jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(User.class), user.getUsername()));
     }
     public List<User> findAll() {

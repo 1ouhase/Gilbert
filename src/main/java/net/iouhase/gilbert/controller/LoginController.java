@@ -3,6 +3,8 @@ package net.iouhase.gilbert.controller;
 import net.iouhase.gilbert.model.User;
 import net.iouhase.gilbert.usecase.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +32,7 @@ public class LoginController {
         return "register";
     }
 
-    @PostMapping("/req/signup")
+    @PostMapping("signup")
     public String createUser(@RequestParam String email, @RequestParam String username, @RequestParam String password) {
         User user = new User();
         user.setEmail(email);
@@ -38,5 +40,17 @@ public class LoginController {
         user.setPassword(passwordEncoder.encode(password));
         userService.save(user);
         return "redirect:/login";
+    }
+
+    @GetMapping("/isloggedin")
+    public String isLoggedin() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!auth.isAuthenticated()) {
+            System.out.println("not logged in");
+            return "redirect:/";
+        }
+        System.out.println("logged in");
+        System.out.println(auth.getName());
+        return "redirect:/";
     }
 }
