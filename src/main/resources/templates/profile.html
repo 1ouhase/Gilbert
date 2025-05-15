@@ -8,42 +8,55 @@
     <link rel="stylesheet" href="/stylesheet.css">
 </head>
 <body>
-<div class="container">
-    <header class="header">
-        <h1>Gilbert</h1>
-    </header>
-    <nav class="nav">
-        <a href="index.html" class="nav-text"><h1 >Home</h1></a>
-        <a href="" class="nav-text"><h1 >Search</h1></a>
-        <a href="" class="nav-text"><h1 >Favorits</h1></a>
-        <a href="profile.html" class="nav-text"><h1 >Profile</h1></a>
-        <a href="" class="nav-text"><h1>Notifications</h1></a>
-        <a href="index.html"><img class="nav-image" src="home.png" alt="Home"></a>
-        <a href=""><img class="nav-image" src="search.png" alt="Search"></a>
-        <a href=""><img class="nav-image" src="heart.png" alt="Favorites"></a>
-        <a href="profile.html"><img class="nav-image" src="cat.png" alt="Profile"></a>
-        <a href=""><img class="nav-image" src="bell.png" alt="Notifications"></a>
-    </nav>
-    <main class="main">
-        <section class="profile-header">
-            <img class="profile-picture" src="IMG_1364.jpg" alt="Profile Picture">
-            <div class="profile-info">
-                <h2 class="username">Stigger</h2>
-                <div class="stats">
-                    <span><strong>12</strong> posts</span>
-                    <span><strong>345</strong> followers</span>
-                    <span><strong>150</strong> following</span>
+    <div class="container">
+        <header class="header">
+            <h1>Gilbert</h1>
+        </header>
+        <nav class="nav">
+            <a href="/" class="nav-text"><h1 >Home</h1></a>
+            <a href="" class="nav-text"><h1 >Search</h1></a>
+            <a href="" class="nav-text"><h1 >Favorits</h1></a>
+            <a href="/profile" class="nav-text"><h1 >Profile</h1></a>
+            <a href="" class="nav-text"><h1>Notifications</h1></a>
+            <a href="/"><img class="nav-image" src="home.png" alt="Home"></a>
+            <a href=""><img class="nav-image" src="search.png" alt="Search"></a>
+            <a href=""><img class="nav-image" src="heart.png" alt="Favorites"></a>
+            <a href="/profile"><img class="nav-image" src="cat.png" alt="Profile"></a>
+            <a href=""><img class="nav-image" src="bell.png" alt="Notifications"></a>
+        </nav>
+        <main class="main">
+            <div class="flexbox">
+                <div class="contents">
+                    <div class="information">
+                        <button>Adverts</button>
+                        <button>Sales</button>
+                        <button>Orders</button>
+                        <button>Info</button>
+                        <button>Help</button>
+                    </div>
+                    <section class="profile-header">
+                        <img class="profile-picture" src="IMG_1364.jpg" alt="Profile Picture">
+                        <div class="profile-info">
+                            <h2 class="displayname">Stigger</h2>
+                            <div class="stats">
+                                <span><strong>12</strong> posts</span>
+                                <span><strong>345</strong> followers</span>
+                                <span><strong>150</strong> following</span>
+                            </div>
+                            <button class="edit-profile-btn">Edit Profile</button>
+                        </div>
+                    </section>
+                    <div class="profile-posts">
+                        <div class="post"><img src="https://images.vestiairecollective.com/images/resized/w=768,q=75,f=auto,/produit/blue-silk-elena-dawson-jacket-55196275-1_2.jpg" alt="Post 1">
+                            <p><Strong>Elena dawson</Strong></p>
+                            <p>Blue silk jacket</p>
+                            <p>Price: 2000 kr</p>
+                            <p>Size: 38</p>
+                        </div>
+                    </div>
                 </div>
-                <button class="edit-profile-btn">Edit Profile</button>
             </div>
-        </section>
-        <!-- skift til at være opslag fra database -->
-        <div class="profile-posts">
-            <div class="post"><img src="post1.jpg" alt="Post 1"></div>
-            <div class="post"><img src="post2.jpg" alt="Post 2"></div>
-            <div class="post"><img src="post3.jpg" alt="Post 3"></div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </body>
 </html>
