@@ -41,7 +41,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(httpForm -> {
                     httpForm.loginPage("/login").permitAll();
-                    httpForm.defaultSuccessUrl("/profile");
+                    httpForm.defaultSuccessUrl("/profile", true);
                 })
                 .authorizeHttpRequests(registry -> {
                     registry.requestMatchers("/signup", "/req/**", "/service/**", "/", "stylesheet.css").permitAll();

@@ -4,6 +4,8 @@ import net.iouhase.gilbert.model.Product;
 import net.iouhase.gilbert.model.User;
 import net.iouhase.gilbert.usecase.ProductService;
 import net.iouhase.gilbert.usecase.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +35,8 @@ public class UserController {
     public String profile(Model model) {
         List<Product> products = productService.findAll();
         model.addAttribute("products", products);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        auth.getName();
         return "profile";
     }
 
