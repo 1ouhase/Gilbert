@@ -1,5 +1,6 @@
 package net.iouhase.gilbert.controller;
 
+import jakarta.servlet.http.HttpSession;
 import net.iouhase.gilbert.model.User;
 import net.iouhase.gilbert.usecase.UserService;
 import org.springframework.stereotype.Controller;

@@ -30,7 +30,7 @@ public class LoginController {
         return "register";
     }
 
-    @PostMapping("/req/signup")
+    @PostMapping("/signup")
     public String createUser(@RequestParam String email, @RequestParam String username, @RequestParam String password) {
         User user = new User();
         user.setEmail(email);
