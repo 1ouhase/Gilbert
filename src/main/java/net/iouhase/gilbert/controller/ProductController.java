@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class ProductController {
     private final ProductService productService;
@@ -56,9 +58,9 @@ public class ProductController {
     }
 
     @PostMapping("/makeAd")
-    public String makeAd(@RequestParam String name, @RequestParam String category) {
+    public String makeAd(@RequestParam String model, @RequestParam String category) {
         Product product = new Product();
-        product.setName(name);
+        product.setModel(model);
         product.setCategory(category);
         productService.save(product);
         return "redirect:/profile";
@@ -68,7 +70,7 @@ public class ProductController {
     public String updateAd(@PathVariable int itemNumber, @RequestParam String name, @RequestParam String category) {
         Product product = new Product();
         product.setItemNumber(itemNumber);
-        product.setName(name);
+        product.setModel(name);
         product.setCategory(category);
         productService.update(product);
         return "redirect:/profile";

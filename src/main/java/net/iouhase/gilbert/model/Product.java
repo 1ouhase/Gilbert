@@ -2,8 +2,11 @@ package net.iouhase.gilbert.model;
 
 public class Product {
     int itemNumber;
-    String name;
+    String model;
     String category;
+    String image;
+    double price;
+    int size;
 
     public int getItemNumber() {
         return itemNumber;
@@ -13,12 +16,12 @@ public class Product {
         this.itemNumber = itemNumber;
     }
 
-    public String getName() {
-        return name;
+    public String getModel() {
+        return model;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModel(String name) {
+        this.model = name;
     }
 
     public String getCategory() {
@@ -27,5 +30,29 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

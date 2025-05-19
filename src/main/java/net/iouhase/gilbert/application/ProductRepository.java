@@ -15,8 +15,8 @@ public class ProductRepository {
     }
 
     public void save(Product product) {
-        String sql = "INSERT INTO product VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, product.getCategory(), product.getName(), product.getItemNumber());
+        String sql = "INSERT INTO product VALUES (?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, product.getItemNumber(), product.getModel(), product.getCategory(), product.getPrice(), product.getSize(), product.getImage());
     }
 
     public Product findByItemNumber(Product product) {
@@ -32,8 +32,8 @@ public class ProductRepository {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Product.class), product.getCategory());
     }
     public void update(Product product) {
-        String sql = "UPDATE product SET category = ?, name = ?, WHERE itemNumber = ?";
-        jdbcTemplate.update(sql, product.getCategory(), product.getName(), product.getItemNumber());
+        String sql = "UPDATE product SET model = ?, category = ?, price = ?, size = ?, image = ?, WHERE itemNumber = ?";
+        jdbcTemplate.update(sql, product.getModel(), product.getCategory(), product.getPrice(), product.getSize() ,product.getImage(), product.getItemNumber());
     }
     public void delete(Product product) {
         String sql = "DELETE FROM product WHERE itemNumber = ?";

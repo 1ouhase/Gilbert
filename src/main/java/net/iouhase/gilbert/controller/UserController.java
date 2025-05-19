@@ -1,7 +1,8 @@
 package net.iouhase.gilbert.controller;
 
-import jakarta.servlet.http.HttpSession;
+import net.iouhase.gilbert.model.Product;
 import net.iouhase.gilbert.model.User;
+import net.iouhase.gilbert.usecase.ProductService;
 import net.iouhase.gilbert.usecase.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 
 @Controller
 public class UserController {
     private final UserService userService;
+    private final ProductService productService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ProductService productService) {
         this.userService = userService;
+        this.productService = productService;
     }
 
     @GetMapping("/")
@@ -25,13 +30,17 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String profile() {
+    public String profile(Model model) {
+        List<Product> products = productService.findAll();
+        model.addAttribute("products", products);
         return "profile";
     }
 
-    @GetMapping("/liked")
-    public String liked() {
-        return "liked";
+    @GetMapping("/favorites")
+    public String favorites(Model model) {
+        List<Product> products = productService.findAll();
+        model.addAttribute("products", products);
+        return "favorites";
     }
 
     @GetMapping("/notifications")
