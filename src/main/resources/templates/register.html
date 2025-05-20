@@ -2,29 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intitial-scale=1.0">
     <title>Signup Form</title>
+    <link rel="icon" href="cat.png" type="image/png">
+    <link rel="stylesheet" href="/stylesheet.css">
 </head>
 <body>
-<section>
-    <form action="/signup" method="post">
-            <input type="text" id= "username" name="username" required>
-            <label>Name</label>
-            <input type="email" id="email" name="email" required>
-            <label>Email</label>
-            <input type="password" id="password" name="password" required>
-            <label>Password</label>
-        <button id="submit" type="submit">Sign Up</button>
-    </form>
-    <a href="/" class="nav-text"><h1 >Home</h1></a>
-    <a href="/search" class="nav-text"><h1 >Search</h1></a>
-    <a href="/favorites" class="nav-text"><h1 >Favorites</h1></a>
-    <a href="/profile" class="nav-text"><h1 >Profile</h1></a>
-    <a href="/notifications" class="nav-text"><h1>Notifications</h1></a>
-    <a href="/"><img class="nav-image" src="home.png" alt="Home"></a>
-    <a href="/search"><img class="nav-image" src="search.png" alt="Search"></a>
-    <a href="/favorites"><img class="nav-image" src="heart.png" alt="Favorites"></a>
-    <a href="/profile"><img class="nav-image" src="cat.png" alt="Profile"></a>
-    <a href="/notifications"><img class="nav-image" src="bell.png" alt="Notifications"></a>
-</section>
+<div class="container">
+        <header class="header"><h1>Gilbert</h1></header>
+        <nav class="nav">
+            <a href="/" class="nav-text"><h1 >Home</h1></a>
+            <a href="/search" class="nav-text"><h1 >Search</h1></a>
+            <a href="/favorites" class="nav-text"><h1 >Favorites</h1></a>
+            <a href="/profile" class="nav-text"><h1 >Profile</h1></a>
+            <a href="/notifications" class="nav-text"><h1>Notifications</h1></a>
+            <a href="/"><img class="nav-image" src="home.png" alt="Home"></a>
+            <a href="/search"><img class="nav-image" src="search.png" alt="Search"></a>
+            <a href="/favorites"><img class="nav-image" src="heart.png" alt="Favorites"></a>
+            <a href="/profile"><img class="nav-image" src="cat.png" alt="Profile"></a>
+            <a href="/notifications"><img class="nav-image" src="bell.png" alt="Notifications"></a>
+        </nav>
+    <main class="main">
+        <div class="flexbox">
+            <div class="contents">
+                <form action="/login" method="post">
+                    <div class="loginbox">
+                        <div class="imgflexbox">
+                            <img src="cat.png" alt="Picture of website mascot">
+                        </div>
+                        <input type="text" placeholder="Enter Email" name="email" id="email" class="email" required>
+                        <input type="text" placeholder="Enter Username" name="username" id="username" class="username" required>
+                        <input type="password" placeholder="Enter Password" name="password" id="password" class="password" required>
+                        <input type="number" placeholder="Enter CVR Number (Optional)" name="CVR Number" id="cvr" class="cvr">
+                        <div class="button-group">
+                            <button type="submit" class="loginbtn">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
 </body>
 </html>
