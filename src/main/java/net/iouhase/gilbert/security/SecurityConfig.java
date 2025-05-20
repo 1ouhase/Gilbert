@@ -44,7 +44,7 @@ public class SecurityConfig {
                     httpForm.defaultSuccessUrl("/profile", true);
                 })
                 .authorizeHttpRequests(registry -> {
-                    registry.requestMatchers("/signup", "/req/**", "/service/**", "/", "stylesheet.css").permitAll();
+                    registry.requestMatchers("/signup", "/req/**", "/service/**", "/", "/public/**").permitAll();
                     registry.anyRequest().authenticated();
                 })
                 .build();
