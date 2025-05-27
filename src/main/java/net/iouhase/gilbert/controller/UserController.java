@@ -36,7 +36,10 @@ public class UserController {
         List<Product> products = productService.findAll();
         model.addAttribute("products", products);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        auth.getName();
+        User user = new User();
+        user.setUsername(auth.getName());
+        user = userService.findByUsername(user);
+        model.addAttribute("user", user);
         return "profile";
     }
 

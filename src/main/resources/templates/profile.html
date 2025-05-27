@@ -35,21 +35,22 @@
                     <button>Help</button>
                 </div>
                 <section class="profile-header">
-                    <img class="profile-picture" src="/public/IMG_1364.jpg" alt="Profile Picture">
+                    <img class="profile-picture" th:src="${user.getImg()}" alt="Profile Picture">
                     <div class="profile-info">
-                        <h2 class="displayname">Stigger</h2>
+                        <h2 class="displayname" th:text="${user.getUsername()}">Stigger</h2>
                         <div class="stats">
-                            <span><strong>12</strong> posts</span>
-                            <span><strong>345</strong> followers</span>
-                            <span><strong>150</strong> following</span>
+                            <span><strong th:text="${user.getSales()}">placeholder</strong> sales</span>
+                            <span><strong th:text="${user.getFollowers()}">placeholder</strong> followers</span>
+                            <span><strong th:text="${user.getFollowing()}">placeholder</strong> following</span>
                         </div>
                         <a href="/updateUser"><button class="edit-profile-btn">Edit Profile</button></a>
+                        <a href="/createPost"><button class="create-post">Create Post</button></a>
                     </div>
                 </section>
                 <div class="profile-posts">
                     <div class="post" th:each="product : ${products}">
                         <img th:src="${product.getImage()}" class="profile-image">
-                        <p th:text="${product.getModel()}"><Strong>placeholder</Strong></p>
+                        <p><Strong th:text="${product.getModel()}">placeholder</Strong></p>
                         <p th:text="${product.getCategory()}">placeholder</p>
                         <p th:text="${product.getPrice()}">placeholder</p>
                         <p th:text="${product.getSize()}">placeholder</p>
