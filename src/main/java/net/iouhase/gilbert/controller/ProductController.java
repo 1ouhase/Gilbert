@@ -3,10 +3,13 @@ package net.iouhase.gilbert.controller;
 import net.iouhase.gilbert.model.Product;
 import net.iouhase.gilbert.usecase.ProductService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class ProductController {
@@ -36,5 +39,12 @@ public class ProductController {
     @GetMapping("/search")
     public String search() {
         return "search";
+    }
+
+    @GetMapping("/advertisement")
+    public String advertisement(Model model) {
+        List<Product> products = productService.findAll();
+        model.addAttribute("products", products);
+        return "advertisement";
     }
 }

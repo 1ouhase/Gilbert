@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <header class="header">
-            <h1>Gilbert</h1>
+        <h1>Gilbert</h1>
     </header>
     <nav class="nav">
         <a href="/" class="nav-text"><h1 >Home</h1></a>
@@ -26,10 +26,15 @@
     </nav>
     <main class="main">
         <div class="flexbox">
-            <div class="ad">
-                <a href="/advertisement"><img src="/public/frontpage.png" alt="Front Page"></a>
-                <div>
-                    <h2>Up to 50% of</h2>
+            <div class="contents">
+                <div class="profile-posts">
+                    <div class="post" th:each="product : ${products}">
+                        <img th:src="${product.getImage()}" class="profile-image">
+                        <p th:text="${product.getModel()}"><Strong>placeholder</Strong></p>
+                        <p th:text="${product.getCategory()}">placeholder</p>
+                        <p th:text="${product.getPrice()}">placeholder</p>
+                        <p th:text="${product.getSize()}">placeholder</p>
+                    </div>
                 </div>
             </div>
         </div>
