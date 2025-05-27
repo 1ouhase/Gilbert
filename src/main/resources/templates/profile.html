@@ -44,9 +44,9 @@
                             <span><strong>150</strong> following</span>
                         </div>
                         <button class="edit-profile-btn">Edit Profile</button>
+                        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
                     </div>
                 </section>
-                <!-- skift til at være opslag fra database -->
                 <div class="profile-posts">
                     <div class="post" th:each="product : ${products}">
                         <img th:src="${product.getImage()}" class="profile-image">
