@@ -26,15 +26,14 @@
     <main class="main">
         <div class="flexbox">
             <div class="contents">
-                <form action="/login" method="post">
+                <form method="post" th:action="@{'/editUser'}">
                     <div class="loginbox">
-                        <div class="imgflexbox">
-                            <img src="/public/cat.png" alt="Picture of website mascot">
-                        </div>
                         <input type="text" placeholder="Enter Username" name="username" id="username" class="username" required>
                         <input type="password" placeholder="Enter Password" name="password" id="password" class="password" required>
+                        <input type="text" placeholder="Change Real name" name="realName" id="realName" class="realName" required>
+                        <input type="text" placeholder="Change image" name="img" id="img" class="img" required>
                         <div class="button-group">
-                            <button type="submit" class="loginbtn">Login</button>
+                            <button type="submit" class="savebtn">Save changes</button>
                             <a href="#">Forgot password?</a>
                         </div>
                     </div>

@@ -62,11 +62,6 @@ public class UserController {
         return "updateUser";
     }
 
-    @GetMapping("/createPost")
-    public String createPost() {
-        return "createPost";
-    }
-
     @PostMapping("/editUser")
     public String editUser(@RequestParam String username, @RequestParam String password, @RequestParam String realName, @RequestParam String img) {
         User user = new User();
