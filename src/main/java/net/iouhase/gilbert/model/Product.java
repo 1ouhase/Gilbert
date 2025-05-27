@@ -44,15 +44,23 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public boolean setPrice(double price) {
+        if (price > 0) {
+            this.price = price;
+            return true;
+        }
+        return false;
     }
 
     public int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public boolean setSize(int size) {
+        if (size > 0) {
+            this.size = size;
+            return true;
+        }
+        return false;
     }
 }

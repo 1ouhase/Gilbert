@@ -63,23 +63,35 @@ public class User {
         return sales;
     }
 
-    public void setSales(int sales) {
-        this.sales = sales;
+    public boolean setSales(int sales) {
+        if (sales > 0) {
+            this.sales = sales;
+            return true;
+        }
+        return false;
     }
 
     public int getFollowers() {
         return followers;
     }
 
-    public void setFollowers(int followers) {
-        this.followers = followers;
+    public boolean setFollowers(int followers) {
+        if (followers > 0) {
+            this.followers = followers;
+            return true;
+        }
+        return false;
     }
 
     public int getFollowing() {
         return following;
     }
 
-    public void setFollowing(int following) {
-        this.following = following;
+    public boolean setFollowing(int following) {
+        if (following > 0) {
+            this.following = following;
+            return true;
+        }
+        return false;
     }
 }
