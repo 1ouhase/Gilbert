@@ -26,12 +26,13 @@
     <main class="main">
         <div class="flexbox">
             <div class="contents">
-                <form method="post" th:action="@{'/editUser'}">
+                <form method="post" th:action="@{'/createPost'}">
                     <div class="loginbox">
-                        <input type="text" placeholder="Enter Username" name="username" id="username" class="username" required>
-                        <input type="password" placeholder="Enter Password" name="password" id="password" class="password" required>
-                        <input type="text" placeholder="Change Real name" name="realName" id="realName" class="realName" required>
-                        <input type="text" placeholder="Change image" name="img" id="img" class="img" required>
+                        <input type="text" placeholder="item name" name="name" id="name" class="username" required>
+                        <input type="text" placeholder="item category" name="category" id="category" class="password" required>
+                        <input type="number" placeholder="price" name="price" id="price" class="realName" required>
+                        <input type="number" placeholder="size" name="size" id="size" class="img" required>
+                        <input type="text" placeholder="picture" name="picture" id="picture" class="img" required>
                         <div class="button-group">
                             <button type="submit" class="savebtn">Save changes</button>
                             <a href="#">Forgot password?</a>
