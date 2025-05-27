@@ -275,6 +275,16 @@
     border: #223a2b solid 1px;
 }
 
+ .front-page {
+     display: initial;
+     object-fit: contain;
+     max-width: 100%;
+ }
+
+.front-page-text {
+    background-color: #004224;
+}
+
 @media (max-width: 1200px) {
     .container {
         grid-template-areas: 
@@ -324,5 +334,16 @@
 
     .forgot {
         margin-left: 35%;
+    }
+
+    .front-page {
+        display: initial;
+        object-fit: contain;
+        max-width: 100%;
+    }
+
+    .front-page-text {
+        background-color: #004224;
+
     }
 }
