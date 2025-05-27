@@ -52,24 +52,36 @@ public class UserController {
         return "notifications";
     }
 
-    @GetMapping("/updateUser/{email}")
-    public String updateUser(@PathVariable String email, Model model) {
+    @GetMapping("/updateUser")
+    public String updateUser(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = new User();
-        user.setEmail(email);
-        //model.addAttribute("user", userService.findByEmail(user));
+        user.setUsername(auth.getName());
+        user = userService.findByUsername(user);
+        model.addAttribute("user", user);
         return "updateUser";
     }
 
-    @PostMapping("/editUser/{email}")
-    public String editUser(@RequestParam String username, @RequestParam String password) {
+    @GetMapping("/createPost")
+    public String createPost() {
+        return "createPost";
+    }
+
+    @PostMapping("/editUser")
+    public String editUser(@RequestParam String username, @RequestParam String password, @RequestParam String realName, @RequestParam String img) {
         User user = new User();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        user.setUsername(auth.getName());
+        user = userService.findByUsername(user);
         user.setUsername(username);
         user.setPassword(password);
-        //userService.update(user);
+        user.setRealName(realName);
+        user.setImg(img);
+        userService.update(user);
         return "redirect:/profile";
     }
 
-    @PostMapping("/createUser")
+    @PostMapping("/makeUser")
     public String createUser(@RequestParam String username, @RequestParam String password, @RequestParam String email) {
         User user = new User();
         user.setUsername(username);
