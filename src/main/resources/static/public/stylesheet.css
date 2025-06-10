@@ -350,6 +350,12 @@
      box-sizing: border-box;
  }
 
+ /* notifications */
+ .notifications {
+     display: flex;
+     align-items: center;
+ }
+
 @media (max-width: 1200px) {
     .container {
         grid-template-areas: 

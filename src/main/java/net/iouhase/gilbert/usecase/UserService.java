@@ -2,6 +2,7 @@ package net.iouhase.gilbert.usecase;
 
 import lombok.AllArgsConstructor;
 import net.iouhase.gilbert.application.UserRepository;
+import net.iouhase.gilbert.model.Product;
 import net.iouhase.gilbert.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -60,4 +61,12 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("username not found" + username);
         }
     }
+
+//    public void checkPrice(Product product) {
+//        double currentPrice = product.getPrice();
+//        double newPrice = product.getPrice();
+//        if (currentPrice > newPrice) {
+//            System.out.println("Price is greater than current price");
+//        }
+//    }
 }

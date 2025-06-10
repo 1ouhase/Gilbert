@@ -65,6 +65,12 @@ public class UserController {
 
     @GetMapping("/notifications")
     public String notifications() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = new User();
+        user.setUsername(auth.getName());
+        user = userService.findByUsername(user);
+        List<Product> products = productService.findFavorite(user);
+        //userService.checkPrice();
         return "notifications";
     }
 
