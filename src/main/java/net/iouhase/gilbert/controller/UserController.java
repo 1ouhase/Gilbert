@@ -45,7 +45,11 @@ public class UserController {
 
     @GetMapping("/favorites")
     public String favorites(Model model) {
-        List<Product> products = productService.findAll();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = new User();
+        user.setUsername(auth.getName());
+        user = userService.findByUsername(user);
+        List<Product> products = productService.findFavorite(user);
         model.addAttribute("products", products);
         return "favorites";
     }

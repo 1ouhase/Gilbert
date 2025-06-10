@@ -1,6 +1,7 @@
 package net.iouhase.gilbert.application;
 
 import net.iouhase.gilbert.model.Product;
+import net.iouhase.gilbert.model.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -26,6 +27,10 @@ public class ProductRepository {
     public List<Product> findAll() {
         String sql = "SELECT * FROM product";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Product.class));
+    }
+    public List<Product> findFavorite(User user) {
+        String sql = "SELECT * FROM gilbert.favorites inner join product on favorites.FKitemNumber=product.itemNumber where FKemail=?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Product.class), user.getEmail());
     }
     public List<Product> findByCategory(Product product) {
         String sql = "SELECT * FROM product WHERE category = ?";

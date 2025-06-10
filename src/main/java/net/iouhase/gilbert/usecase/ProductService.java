@@ -3,6 +3,7 @@ package net.iouhase.gilbert.usecase;
 import jdk.jfr.Category;
 import net.iouhase.gilbert.application.ProductRepository;
 import net.iouhase.gilbert.model.Product;
+import net.iouhase.gilbert.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +25,10 @@ public class ProductService {
 
     public List<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    public List<Product> findFavorite(User user) {
+        return productRepository.findFavorite(user);
     }
 
     public List<Product> findByCategory(Product product) {
