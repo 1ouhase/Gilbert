@@ -1,9 +1,12 @@
 package net.iouhase.gilbert.controller;
 
+import net.iouhase.gilbert.exception.ResourceNotFoundException;
 import net.iouhase.gilbert.model.Product;
 import net.iouhase.gilbert.model.User;
 import net.iouhase.gilbert.usecase.ProductService;
 import net.iouhase.gilbert.usecase.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,8 @@ import java.util.List;
 
 @Controller
 public class UserController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private final UserService userService;
     private final ProductService productService;
 
@@ -34,11 +39,15 @@ public class UserController {
     @GetMapping("/profile")
     public String profile(Model model) {
         List<Product> products = productService.findAll();
+        logger.info("Found {} products", products.size());
         model.addAttribute("products", products);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = new User();
         user.setUsername(auth.getName());
         user = userService.findByUsername(user);
+        if (user.getEmail() == null){
+            throw new ResourceNotFoundException("something went wrong when fetching user");
+        }
         model.addAttribute("user", user);
         return "profile";
     }
@@ -65,6 +74,9 @@ public class UserController {
         User user = new User();
         user.setUsername(auth.getName());
         user = userService.findByUsername(user);
+        if (user.getEmail() == null){
+            throw new ResourceNotFoundException("something went wrong when trying to update user");
+        }
         model.addAttribute("user", user);
         return "updateUser";
     }
@@ -75,29 +87,14 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         user.setUsername(auth.getName());
         user = userService.findByUsername(user);
+        if (user.getEmail() == null){
+            throw new ResourceNotFoundException("something went wrong when trying to update user");
+        }
         user.setUsername(username);
         user.setPassword(password);
         user.setRealName(realName);
         user.setImg(img);
         userService.update(user);
         return "redirect:/profile";
-    }
-
-    @PostMapping("/makeUser")
-    public String createUser(@RequestParam String username, @RequestParam String password, @RequestParam String email) {
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(email);
-        //userService.save(user);
-        return "redirect:/login";
-    }
-
-    @PostMapping("/deleteUser/{email}")
-    public String deleteUser(@PathVariable String email) {
-        User user = new User();
-        user.setEmail(email);
-        //userService.delete(user);
-        return "redirect:/";
     }
 }
