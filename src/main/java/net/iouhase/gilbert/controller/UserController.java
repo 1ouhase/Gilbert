@@ -87,6 +87,17 @@ public class UserController {
         return "updateUser";
     }
 
+    @GetMapping("/info")
+    public String info(){
+        System.out.println("bing bong");
+        return "info";
+    }
+
+    @GetMapping("/help")
+    public String help(){
+        return "help";
+    }
+
     @PostMapping("/editUser")
     public String editUser(@RequestParam String username, @RequestParam String password, @RequestParam String realName, @RequestParam String img) {
         User user = new User();
